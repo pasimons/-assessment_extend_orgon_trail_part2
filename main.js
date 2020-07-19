@@ -44,7 +44,12 @@ class Hunters extends Traveler{
 
 // Transfers numOfFoodUnits from the hunter to the traveler. 
 // If the hunter doesn't have enough food, then no food should be transferred.
-    giveFood(traveler, numOfFoodUnits)
+    giveFood(traveler, numOfFoodUnits){
+        if(traveler.food < 5){
+            decline
+        }else(numOfFoodUnits > 5)
+        accpect
+    }
 }
 
 
