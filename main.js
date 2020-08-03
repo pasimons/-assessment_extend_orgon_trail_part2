@@ -14,47 +14,51 @@ class Traveler {
             this.isHealthy = false
         }
     }
-    
+
 }
-class Doctor extends Traveler{
-    constructor (args) {
+class Doctor extends Traveler {
+    constructor(args) {
         super(args)
 
-    heal(traveler)
-this.isHealthy === true
+
+    }
+    heal(traveler) {
+        traveler.isHealthy = true
+    }
 }
 
-
-class Hunters extends Traveler{
-    constructor (args) {
+class Hunter extends Traveler {
+    constructor(args) {
         super(args)
         this.food = 2
     }
     // - Increase the hunter's food by 5. (A normal traveler gains only 2.)
     hunt() {
-        this.eat()
+        this.food += 5
     }
 
     // Consumes 2 units of food. If the hunter doesn't have 2 food when they are instructed to eat, 
     // they eat as much as they can (0 or 1 unit), but the hunter is no longer healthy.
-    Eat() {
-        super(eat) 
-        {
-            if (this.food > 2) {
-                this.food -= 1
-            } else {
-                this.isHealthy = false
-            }
+    eat() {
+
+
+        if (this.food > 2) {
+            this.food -= 2
+        } else {
+            this.isHealthy = false
+            this.food = 0
         }
+
     }
 
-// Transfers numOfFoodUnits from the hunter to the traveler. 
-// If the hunter doesn't have enough food, then no food should be transferred.
-    giveFood(traveler, numOfFoodUnits){
-        if(traveler.food < 5){
-            decline
-        }else(numOfFoodUnits > 5)
-        accpect
+    // Transfers numOfFoodUnits from the hunter to the traveler. 
+    // If the hunter doesn't have enough food, then no food should be transferred.
+    giveFood(traveler, numOfFoodUnits) {
+        if (this.food >= numOfFoodUnits) {
+            this.food -= numOfFoodUnits
+            traveler.food += numOfFoodUnits
+        }
+
     }
 }
 
@@ -82,19 +86,19 @@ class Wagon {
     }
 
     shouldQuarantine() {
-        const quarantine = this.passengers.some(function(passenger){
-           return  passenger.isHealthy === false
+        const quarantine = this.passengers.some(function (passenger) {
+            return passenger.isHealthy === false
 
         })
-return quarantine
+        return quarantine
 
     }
 
-    totalFood() { 
-        const food = this.passengers.reduce(function(sum,passenger){
-            return sum + passenger.food 
-          }, 0);
-          return food
+    totalFood() {
+        const food = this.passengers.reduce(function (sum, passenger) {
+            return sum + passenger.food
+        }, 0);
+        return food
     }
 
 

@@ -17,6 +17,7 @@ console.log(`#3: There should be 0 available seats. Actual: ${wagon.getAvailable
 console.log(`#4: There should be 5 total food. Actual: ${wagon.totalFood()}`);
 sarahunter.hunt(); // gets 5 more food
 drsmith.hunt();
+console.log(wagon)
 console.log(`#5: There should be 12 total food. Actual: ${wagon.totalFood()}`);
 henrietta.eat();
 sarahunter.eat();
